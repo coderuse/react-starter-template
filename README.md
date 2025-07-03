@@ -24,6 +24,9 @@ A modern, feature-rich React TypeScript starter template with a comprehensive te
 - **ESLint** - Code linting and quality assurance
 - **TypeScript Compiler** - Type checking and compilation
 - **Hot Module Replacement** - Fast development with instant updates
+- **Pre-commit Hooks** - Automated code quality checks before commits
+- **Knip** - Unused dependency and export detection
+- **GitHub Actions** - Automated CI/CD pipeline for deployment
 
 ## 📦 What's Included
 
@@ -100,10 +103,30 @@ npm run lint
 - Checks for code quality issues
 - Enforces consistent coding standards
 
+### Pre-commit Hooks
+Automated quality checks run before every commit:
+- **ESLint** - Ensures code quality and consistency
+- **TypeScript Build** - Verifies type safety and compilation
+- **Knip Analysis** - Detects unused dependencies and exports
+
+The pre-commit hook automatically runs these checks when you commit changes, preventing issues from entering the repository. If any check fails, the commit is blocked until the issues are resolved. To bypass the hook temporarily, use `git commit --no-verify`.
+
+### GitHub Pages Deployment
+Automated deployment to GitHub Pages using GitHub Actions:
+- **Continuous Integration** - Runs on every push to main branch
+- **Build Process** - Installs dependencies, runs linting, and builds the project
+- **Automatic Deployment** - Deploys built files to `site` branch for GitHub Pages
+- **Pull Request Checks** - Validates builds on pull requests without deploying
+
+The workflow automatically builds and deploys your application whenever you push changes to the main branch. Configure GitHub Pages to use the `site` branch as the source to serve your application.
+
 ## 📁 Project Structure
 
 ```
 react-starter-template/
+├── .github/
+│   └── workflows/        # GitHub Actions workflows
+│       └── deploy.yml    # Build and deploy workflow
 ├── public/                 # Static assets
 ├── src/
 │   ├── components/        # Reusable UI components
@@ -157,6 +180,8 @@ react-starter-template/
 - Type checking with TypeScript
 - Code quality with ESLint
 - Hot module replacement
+- Pre-commit hooks for automated quality assurance
+- GitHub Actions for continuous deployment
 
 ## 🔧 Customization
 
